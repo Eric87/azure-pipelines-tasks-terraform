@@ -15,8 +15,23 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm audit fix
-    npm run build
-  displayName: 'npm install and build'
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'TerraformInstaller'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'TerraformInstaller'
+    customCommand: 'version $(GitVersion.SemVer) --no-git-tag-version'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: 'TerraformCLI'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'TerraformCLI'
+    customCommand: 'version $(GitVersion.SemVer) --no-git-tag-version'
