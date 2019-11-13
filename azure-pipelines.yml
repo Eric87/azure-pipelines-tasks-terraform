@@ -40,3 +40,7 @@ steps:
     workingDir: '$(System.DefaultWorkingDirectory)/TerraformCLI'
     customCommand: 'run build'
   displayName: 'CLI build'
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir: '$(System.DefaultWorkingDirectory)/TerraformInstaller'
