@@ -1,4 +1,4 @@
-import { cleanVersion } from 'vsts-task-tool-lib';
+import { cleanVersion } from 'azure-pipelines-tool-lib';
 
 export function sanitizeVersion(inputVersion: string) : string {
     var version = cleanVersion(inputVersion);

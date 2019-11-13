@@ -1,10 +1,10 @@
-import tasks = require('vsts-task-lib/task');
+import tasks = require('azure-pipelines-task-lib/task');
 import * as installer from './installer'
-import * as tools from 'vsts-task-tool-lib/tool';
+import * as tools from 'azure-pipelines-tool-lib/tool';
 import * as path from 'path';
 
 async function configureTerraform(){
-    var inputVersion = tasks.getInput("terraformVersion", true);
+    var inputVersion = tasks.getInput("terraformVersion", true) || "";
     var terraformPath = await installer.download(inputVersion);
     var envPath = process.env['PATH'];
     if(envPath && !envPath.startsWith(path.dirname(terraformPath))){
