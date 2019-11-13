@@ -18,21 +18,21 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: 'TerraformInstaller'
+    workingDir: '$(System.DefaultWorkingDirectory)/TerraformInstaller'
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'TerrafromInstaller'
+    workingDir: '$(System.DefaultWorkingDirectory)/TerrafromInstaller'
     customCommand: 'run build'
 
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: 'TerraformCLI'
+    workingDir: '$(System.DefaultWorkingDirectory)/TerraformCLI'
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'TerraformCLI'
+    workingDir: '$(System.DefaultWorkingDirectory)/TerraformCLI'
     customCommand: 'run build'
