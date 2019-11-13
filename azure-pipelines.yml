@@ -19,11 +19,7 @@ steps:
   inputs:
     command: 'install'
     workingDir: 'TerraformInstaller'
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: 'TerraformInstaller'
-    customCommand: 'version $(GitVersion.SemVer) --no-git-tag-version'
+
 - task: Npm@1
   inputs:
     command: 'custom'
@@ -40,9 +36,3 @@ steps:
     command: 'custom'
     workingDir: 'TerraformCLI'
     customCommand: 'run build'
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: 'TerraformCLI'
-    customCommand: 'version $(GitVersion.SemVer) --no-git-tag-version'
