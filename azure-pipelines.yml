@@ -24,11 +24,22 @@ steps:
     command: 'custom'
     workingDir: 'TerraformInstaller'
     customCommand: 'version $(GitVersion.SemVer) --no-git-tag-version'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'TerrafromInstaller'
+    customCommand: 'run build'
 
 - task: Npm@1
   inputs:
     command: 'install'
     workingDir: 'TerraformCLI'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: 'TerraformCLI'
+    customCommand: 'run build'
 
 - task: Npm@1
   inputs:
