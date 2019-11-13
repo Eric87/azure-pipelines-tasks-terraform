@@ -32,7 +32,7 @@ steps:
   inputs:
     command: 'install'
     workingDir: '$(System.DefaultWorkingDirectory)/TerraformCLI'
-  displayName: 'CLI build'
+  displayName: 'CLI install'
 
 - task: Npm@1
   inputs:
@@ -40,7 +40,3 @@ steps:
     workingDir: '$(System.DefaultWorkingDirectory)/TerraformCLI'
     customCommand: 'run build'
   displayName: 'CLI build'
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: '$(System.DefaultWorkingDirectory)/TerraformInstaller'
