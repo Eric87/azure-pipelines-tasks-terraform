@@ -40,3 +40,8 @@ steps:
     workingDir: '$(System.DefaultWorkingDirectory)/TerraformCLI'
     customCommand: 'run build'
   displayName: 'CLI build'
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'init'
+  displayName: 'CLI init'
